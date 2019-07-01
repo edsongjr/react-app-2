@@ -15,8 +15,8 @@ ReactDOM.render(
       <Route path="/" exact component={Login}/>
       <Route path="/logout" component={Logout}/>
       <Route path="/timeline/:login" component={App}/>
-      <PrivateRoute path="/timeline" component={App} />
-    </Switch>
+      <PrivateRoute path="/timeline" exact component={App} />
+    </Switch> 
   </Router>,
   document.getElementById('root')
 );
