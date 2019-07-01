@@ -18,11 +18,12 @@ export default class Timeline extends Component {
 
     render(){
         return (
-        <div className="fotos container">
-          {
-            this.state.fotos.map(foto => <FotoItem key={foto.id} foto={foto} key={foto.loginUsuario} />)
-          }
-        </div>            
+          <div className="fotos container">
+            {
+              this.state.fotos.map(foto => 
+                <FotoItem key={foto.id} foto={foto}   />)
+            }
+          </div>            
         );
     }
 }

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import queryString from 'query-string'
  
 export default class Login extends Component{
 
-    constructor(){
-        super();
-        this.state = {msg : ""};
+    constructor(props){
+        super(props);
+        const queryParameters = queryString.parse(this.props.location.search);
+        this.state = {msg : queryParameters.msg};
     }
 
     envia(event){
@@ -31,7 +33,7 @@ export default class Login extends Component{
             })
             .then(token => {
                 localStorage.setItem("auth-token", token);
-                this.props.history.push('/timeline')
+                this.props.history.push('/timeline');
             })
             .catch(error =>  this.setState({msg: error.message}));
     }
